@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      .container{
+        margin:0 auto;
+        width: 350px;
+        height: 456px;
+        background-color: rgba(233, 235, 232, 0.87);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #item{
+        width: 360px;
+        height: 465px;
+      
+      }
+      .item2{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      .item2 p{
+        
+        font-size: 22px;
+        font-family: cursive;
+      }
+
+      #item ul{
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        text-decoration: none;
+        font-family: cursive;
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 1px;
+      }
+      #take-data{
+        width: 160px;
+        padding: 12px 4px;
+        border: 3px solid black;
+        background-color: azure;
+        border-radius: 5px;
+        
+      }
+      #click-button{
+        width: 173px;
+        padding: 12px 6px;
+        border: 3px solid black;
+        background-color: mediumseagreen;
+        border-radius: 5px;
+        
+      }
+
+    </style>
+</head>
+<body>
+    
+  <p style="text-align: center; font-family:cursive; margin-top: 150px; margin: bottom 0px; font-size: 25px; font-weight: bold;"><span style="color:red;">Multiplication</span> Table</p>
+      <div class="container">   
+        <div id="item">
+
+         
+            <div class="item2">
+              <p>Please Enter Number (1-99) </p> 
+            </div>
+        </div>
+        <input id="take-data" type="number"placeholder ="Enter Number Here"> <button id="click-button" ><b>Click Me</b></button>
+      </div>
+
+                                        <!--JavaScript Code is Start Here-->
+              
+    <script>
+  
+        // Instructions: 
+        //     Create a JavaScript function called "multiplicationTable" that takes a single argument "num" (an integer) as input.
+        //     Inside the function, create a for loop that iterates from 1 to 10.
+        //     Inside the loop, multiply the current iteration number by the input "num" to generate the product.
+        //     Log the product to the console in the format "num x iteration = product".
+        //     Test the function with different input numbers to generate multiplication tables.
+
+
+        //DOM oparation
+          let clickFunc = document.getElementById("click-button").addEventListener("click", function(){
+          let takeData = document.getElementById("take-data").value;
+          let tableData = parseFloat(takeData);
+          let tableNum = Math.floor(tableData);
+            
+          if(tableNum <= 99 && tableNum > 0){
+
+              var cheek2 =  multiplicationTable(tableNum);
+              document.getElementById("item").innerHTML= cheek2;
+
+          }else{
+            alert("Please Enter a number 1-99 and Positives Value")
+          }
+
+          document.getElementById("take-data").value="";
+        });
+        
+
+        // generates a multiplication table for a given number using a for loop.
+
+
+        function multiplicationTable(num){
+            var allItem = "";
+              for(var i = 1; i<=10; i++){
+                  allItem += "<ul>" + num +" × " + i + "" +" " + "="+ " " + num * i  +"</ul>"; 
+              }
+            return allItem;
+        }
+        
+    </script>
+</body>
+</html>
